@@ -16,4 +16,4 @@ CREATE TABLE "characters" (
 INSERT INTO 
 characters ("name", race, description, age, height, u_obj, sex, image) 
 VALUES
-('Baby Yoda', 'Tridactyls', 'O baby Yoda, simplesmente o melhor personagem de todos os tempos', 900, 42, 'jedi_suite', 'male','https://media.vanityfair.com/photos/5dd70131e78810000883f587/4:3/w_1115,h_836,c_limit/baby-yoda-craze.jpg');
+('Baby Yoda', 'Tridactyls', 'Baby Yoda; simplesmente o melhor personagem de todos os tempos', 900, 42, 'jedi_suite', 'male','https://media.vanityfair.com/photos/5dd70131e78810000883f587/4:3/w_1115,h_836,c_limit/baby-yoda-craze.jpg');
