@@ -6,7 +6,7 @@ export function getCharactersFromDb(){
 }
 
 export function insertCharacterIntoDb(character: Character){
-    const {name, race, description, age, height, u_obj, sex, image} = character;
+    const {name, race, description, age, height, u_obj, sex, image = null} = character;
     return connection.query(` 
     INSERT INTO 
     characters (name, race, description, age, height, u_obj, sex, image) 
