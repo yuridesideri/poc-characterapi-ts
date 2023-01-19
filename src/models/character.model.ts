@@ -13,3 +13,15 @@ export const characterSchema = joi.object({
     sex: joi.string().valid("male", "female", "other").required(),
     image: joi.string().uri(),
 })
+
+export const characterUpdateSchema = joi.object().keys({
+    name: joi.string().optional(),
+    race: joi.string().optional(),
+    description: joi.string().optional(),
+    age: joi.string().optional(),
+    height: joi.string().optional(),
+    u_obj: joi.string().optional(),
+    sex: joi.string().valid("male", "female", "other"),
+    image: joi.string().uri().allow(null).optional(),
+
+})
