@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { getCharactersFromDb, insertCharacterIntoDb, updateCharacterIntoDb } from "../repositories/character.repo.js"
+import { getCharactersFromDb, insertCharacterIntoDb, removeCharacterFromDb, updateCharacterIntoDb } from "../repositories/character.repo.js"
 import { Character, CharacterFields } from "../types/character.type.js";
 
 
@@ -34,9 +34,24 @@ export async function insertCharacter(req: Request, res: Response){
 
 export async function updateCharacter(req: Request, res: Response){
     try {
-        const {id, updatedCharacter} = res.locals as {id: number, updatedCharacter: CharacterFields};
+        const {id, updatedCharacter} = res.locals as {id: string, updatedCharacter: CharacterFields};
         await updateCharacterIntoDb(id, updatedCharacter);
-        res.sendStatus(204);
+        res.sendStatus(200);
+    }catch (err){
+        console.error(err)
+        res.status(400)
+        res.send(err)
+    }
+}
+
+
+
+export async function removeCharacter(req: Request, res: Response){
+    try {
+        const { id } = res.locals as {id: string};
+        await removeCharacterFromDb(id);
+        res.sendStatus(200);
+
     }catch (err){
         console.error(err)
         res.status(400)

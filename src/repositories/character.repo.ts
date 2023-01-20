@@ -18,7 +18,7 @@ export function insertCharacterIntoDb(character: Character) {
     );
 }
 
-export function updateCharacterIntoDb(id: number, character: CharacterFields) {
+export function updateCharacterIntoDb(id: string, character: CharacterFields) {
     const keys = Object.keys(character);
     const values = Object.values(character);
     return connection.query(
@@ -28,5 +28,15 @@ export function updateCharacterIntoDb(id: number, character: CharacterFields) {
     WHERE id = $1;
     `,
         [id, ...values]
+    );
+}
+
+export function removeCharacterFromDb(id: string) {
+    return connection.query(
+        `
+    DELETE FROM characters
+    WHERE id = $1;
+    `,
+        [id]
     );
 }

@@ -25,3 +25,5 @@ export const characterUpdateSchema = joi.object().keys({
     image: joi.string().uri().allow(null).optional(),
 
 })
+
+export const characterIdSchema = numberStringSchema;

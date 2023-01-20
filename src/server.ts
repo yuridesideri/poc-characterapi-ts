@@ -1,17 +1,16 @@
-import express, { Request, Response } from 'express';
-import cors from 'cors';
-import { indexRouter } from './routes/index.route.js';
+import express, { Request, Response } from "express";
+import cors from "cors";
+import { indexRouter } from "./routes/index.route.js";
 
-const server = express()
+const server = express();
 
-server.use(express.json());
-server.use(cors());
-server.use(indexRouter);
-
+server.use(express.json()).use(cors()).use(indexRouter);
 
 server.get("/health", (req: Request, res: Response) => {
-    res.status(200).send("Hello World!");
+    res.status(200).send("Hello World!"); 
 });
 
-
-server.listen(4000, () => { console.log('Server is running on port 4000') } );
+const port = process.env.PORT || 4000;
+server.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
