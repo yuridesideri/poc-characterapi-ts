@@ -1,8 +1,8 @@
 import connection from "../database/db.js";
 import { Character, CharacterFields } from "../types/character.type.js";
 
-export function getCharactersFromDb() {
-    return connection.query("SELECT * FROM characters");
+export function getCharactersFromDb(id : string) {
+    return connection.query("SELECT * FROM characters WHERE ($1::text IS NULL) OR id = $1::numeric;", [id]);
 }
 
 export function insertCharacterIntoDb(character: Character) {

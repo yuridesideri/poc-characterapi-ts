@@ -7,7 +7,8 @@ import { Character, CharacterFields } from "../types/character.type.js";
 
 export async function getCharacters(req: Request, res: Response){
     try {
-        const {rows: characters} = await getCharactersFromDb();
+        const { id } = res.locals as {id: string};
+        const {rows: characters} = await getCharactersFromDb(id);
         res.status(200)
         res.send(characters)
     }catch (err){

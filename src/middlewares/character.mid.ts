@@ -1,5 +1,9 @@
 import { NextFunction, Request, Response } from "express";
-import { characterIdSchema, characterSchema, characterUpdateSchema } from "../models/character.model.js";
+import {
+    characterIdSchema,
+    characterSchema,
+    characterUpdateSchema,
+} from "../models/character.model.js";
 import { Character } from "../types/character.type";
 
 export async function characterValidationMid(req: Request, res: Response, next: NextFunction) {
@@ -31,10 +35,13 @@ export async function updateCharacterMid(req: Request, res: Response, next: Next
     }
 }
 
-export async function removeCharacterMid(req: Request, res: Response, next: NextFunction) {
+export async function validateIdMid(req: Request, res: Response, next: NextFunction) {
     try {
         const { id } = req.params;
-        const validatedId = await characterIdSchema.validateAsync(id);
+        let validatedId = undefined;
+        if (id) {
+            validatedId = await characterIdSchema.validateAsync(id);
+        }
         res.locals.id = validatedId;
         next();
     } catch (err) {
