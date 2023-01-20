@@ -24,7 +24,7 @@ Dump the database from `./dump/dump.sql`
 
 Rename `.env.example` to `.env`
 
-Insert into .env your database string `ex: postgres://postgres:password@localhost:5432/database_name` and set your port `default: 4000`
+Insert into `.env` your database string `ex: postgres://postgres:password@localhost:5432/database_name` and set your port `default is 4000`
 
 Start the server: ```npm run dev```
 ## Usage
