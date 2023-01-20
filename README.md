@@ -18,6 +18,8 @@ Clone the repository: ```git clone https://github.com/yuridesideri/poc-character
 
 Install dependencies: ```npm install```
 
+Run Postgres
+
 Dump the database from `./dump/dump.sql`
 
 Rename `.env.example` to `.env`
