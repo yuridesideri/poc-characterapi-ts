@@ -20,7 +20,7 @@ Install dependencies: ```npm install```
 
 Dump the database from `./dump/dump.sql`
 
-Change `./.env.example` to `./.env`
+Rename `.env.example` to `.env`
 
 Insert into .env your database string `ex: postgres://postgres:password@localhost:5432/database_name` and set your port `default: 4000`
 
